@@ -26,8 +26,8 @@ logging.basicConfig(format='%(asctime)s %(message)s',
 def tap_screen(x, y):
     """calculate real x, y according to device resolution."""
     base_x, base_y = 1920, 1080
-    real_x = int(x / base_x * device_x)
-    real_y = int(y / base_y * device_y)
+    real_x = int(x * device_x / base_x)
+    real_y = int(y * device_y / base_y)
     os.system('adb shell input tap {} {}'.format(real_x, real_y))
 
 
